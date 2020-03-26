@@ -86,20 +86,8 @@ paths:
       responses:
         '200':
           description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  name:
-                    type: string
-              examples:
-                "{name: 'example'}": {}
-            application/xml:
-              schema:
-                type: object
-                properties: {}
       operationId: get-foobar
+      description: simple test
 components:
   schemas: {}
 servers:
