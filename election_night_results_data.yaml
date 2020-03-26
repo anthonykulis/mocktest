@@ -119,7 +119,9 @@ paths:
                   foo:
                     type: string
               examples:
-                '{"foo": "bar1"}': {}
+                Basic Foo with foo1:
+                  value:
+                    foo: bar1
       operationId: get-foobar-whichFoo
       description: get a specific foo
       requestBody: {}
