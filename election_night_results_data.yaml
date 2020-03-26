@@ -109,19 +109,10 @@ paths:
       summary: Your GET endpoint
       tags: []
       responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  foo:
-                    type: string
-              examples:
-                Basic Foo with foo1:
-                  value:
-                    foo: bar1
+        '412':
+          description: Precondition Failed - stupid mofo
+        '500':
+          description: Internal Server Error
       operationId: get-foobar-whichFoo
       description: get a specific foo
       requestBody: {}
