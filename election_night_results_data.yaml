@@ -93,14 +93,14 @@ paths:
                 properties:
                   '':
                     type: string
-              examples:
-                example-1: {}
-            application/xml:
+            application/json:
               schema:
                 type: object
                 properties:
-                  '':
+                  name:
                     type: string
+              examples:
+                "{name: 'example'}": {}
       operationId: get-foobar
 components:
   schemas: {}
