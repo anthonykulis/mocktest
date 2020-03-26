@@ -79,6 +79,21 @@ paths:
       operationId: uploadVoterRegistration
       summary: upload the voter registration file
       description: 'one of the three calls required to set up a new election. '
+  /foobar:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                example-1: {}
+      operationId: get-foobar
 components:
   schemas: {}
 servers:
