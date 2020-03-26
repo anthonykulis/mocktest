@@ -1,4 +1,3 @@
----
 openapi: 3.0.2
 info:
   title: election night results - data
@@ -18,11 +17,11 @@ paths:
                 value: '"<FILE>"'
         required: true
       tags:
-      - fileUploading
+        - fileUploading
       responses:
-        "204":
+        '204':
           description: When map has been put on cdn
-        "401":
+        '401':
           description: Uploader is not authenticated or authorized
       operationId: uploadCountyMap
       summary: Uploads the county precinct map for the public app consumption
@@ -40,23 +39,20 @@ paths:
                 value: '"<FILE>"'
         required: true
       servers:
-      - url: https://api.dev.electionnightresults.com
-        description: ""
+        - url: 'https://api.dev.electionnightresults.com'
+          description: ''
       tags:
-      - fileUploading
+        - fileUploading
       responses:
-        "201":
+        '201':
           description: Results were uploaded successfully
-        "401":
+        '401':
           description: The user is not authenticated or authorized
-        "415":
-          description: The user uploaded the wrong media type, meaning we didnt get
-            the expected file format
+        '415':
+          description: 'The user uploaded the wrong media type, meaning we didnt get the expected file format'
       operationId: uploadResults
       summary: upload the current results data
-      description: How the user uploads the election results. As the user updates
-        the results, this file will have 100% of the info required for this, meaning
-        old uploads get archived, so there is no corresponding PUT request
+      description: 'How the user uploads the election results. As the user updates the results, this file will have 100% of the info required for this, meaning old uploads get archived, so there is no corresponding PUT request'
   /upload/registration:
     post:
       requestBody:
@@ -69,32 +65,28 @@ paths:
               data:
                 value: '"<FILE>"'
       servers:
-      - url: https://api.dev.electionnightresults.com
-        description: ""
+        - url: 'https://api.dev.electionnightresults.com'
+          description: ''
       tags:
-      - fileUploading
+        - fileUploading
       responses:
-        "201":
-          description: The file was able to be parsed and transformed into a json
-            representation
-        "401":
+        '201':
+          description: The file was able to be parsed and transformed into a json representation
+        '401':
           description: The uploader failed authentication or authorization
-        "415":
-          description: Uploader sent a file that does not meet requirments to be parsed
-            - example expected format was ES&S but got a random text file
+        '415':
+          description: 'Uploader sent a file that does not meet requirments to be parsed - example expected format was ES&S but got a random text file'
       operationId: uploadVoterRegistration
       summary: upload the voter registration file
       description: 'one of the three calls required to set up a new election. '
   /happyfunballs:
     summary: Path used to manage the list of happyfunballs.
-    description: The REST endpoint/path used to list and create zero or more `HappyFunBall`
-      entities.  This path contains a `GET` and `POST` operation to perform the list
-      and create tasks, respectively.
+    description: 'The REST endpoint/path used to list and create zero or more `HappyFunBall` entities.  This path contains a `GET` and `POST` operation to perform the list and create tasks, respectively.'
     get:
       tags:
-      - happyfunballs
+        - happyfunballs
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -104,12 +96,12 @@ paths:
               examples:
                 funBalls:
                   value:
-                  - ball: true
-                    happy: true
-                    sad: true
-                  - ball: true
-                    happy: true
-                    sad: true
+                    - ball: true
+                      happy: true
+                      sad: true
+                    - ball: true
+                      happy: true
+                      sad: true
           description: Successful response - returns an array of `HappyFunBall` entities.
       operationId: gethappyfunballs
       summary: List All happyfunballs
@@ -123,23 +115,21 @@ paths:
               $ref: '#/components/schemas/HappyFunBall'
         required: true
       tags:
-      - happyfunballs
+        - happyfunballs
       responses:
-        "201":
+        '201':
           description: Successful response.
       operationId: createHappyFunBall
       summary: Create a HappyFunBall
       description: Creates a new instance of a `HappyFunBall`.
-  /happyfunballs/{happyfunballId}:
+  '/happyfunballs/{happyfunballId}':
     summary: Path used to manage a single HappyFunBall.
-    description: The REST endpoint/path used to get, update, and delete single instances
-      of an `HappyFunBall`.  This path contains `GET`, `PUT`, and `DELETE` operations
-      used to perform the get, update, and delete tasks, respectively.
+    description: 'The REST endpoint/path used to get, update, and delete single instances of an `HappyFunBall`.  This path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks, respectively.'
     get:
       tags:
-      - happyfunballs
+        - happyfunballs
       responses:
-        "200":
+        '200':
           content:
             application/json:
               schema:
@@ -157,29 +147,29 @@ paths:
               $ref: '#/components/schemas/HappyFunBall'
         required: true
       tags:
-      - happyfunballs
+        - happyfunballs
       responses:
-        "202":
+        '202':
           description: Successful response.
       operationId: updateHappyFunBall
       summary: Update a HappyFunBall
       description: Updates an existing `HappyFunBall`.
     delete:
       tags:
-      - happyfunballs
+        - happyfunballs
       responses:
-        "204":
+        '204':
           description: Successful response.
       operationId: deleteHappyFunBall
       summary: Delete a HappyFunBall
       description: Deletes an existing `HappyFunBall`.
     parameters:
-    - name: happyfunballId
-      description: A unique identifier for a `HappyFunBall`.
-      schema:
-        type: string
-      in: path
-      required: true
+      - name: happyfunballId
+        description: A unique identifier for a `HappyFunBall`.
+        schema:
+          type: string
+        in: path
+        required: true
 components:
   schemas:
     HappyFunBall:
@@ -197,3 +187,6 @@ components:
         ball: true
         happy: true
         sad: false
+servers:
+  - url: 'http://localhost:4010/api/v1'
+    description: ''
