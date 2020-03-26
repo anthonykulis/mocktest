@@ -86,6 +86,15 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  foo:
+                    type: string
+              examples:
+                '{"foo": "bar"}': {}
       operationId: get-foobar
       description: simple test
 components:
