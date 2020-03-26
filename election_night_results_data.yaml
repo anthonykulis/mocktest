@@ -79,43 +79,6 @@ paths:
       operationId: uploadVoterRegistration
       summary: upload the voter registration file
       description: 'one of the three calls required to set up a new election. '
-  /foobar:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  foo:
-                    type: string
-              examples:
-                '{"foo": "bar"}': {}
-      operationId: get-foobar
-      description: simple test
-  '/foobar/{whichFoo}':
-    parameters:
-      - schema:
-          type: integer
-        name: whichFoo
-        in: path
-        required: true
-        description: the foo you want
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses:
-        '412':
-          description: Precondition Failed - stupid mofo
-        '500':
-          description: Internal Server Error
-      operationId: get-foobar-whichFoo
-      description: get a specific foo
-      requestBody: {}
 components:
   schemas: {}
 servers:
