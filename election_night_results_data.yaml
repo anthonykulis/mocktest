@@ -87,12 +87,6 @@ paths:
         '200':
           description: OK
           content:
-            text/plain:
-              schema:
-                type: object
-                properties:
-                  '':
-                    type: string
             application/json:
               schema:
                 type: object
@@ -101,6 +95,10 @@ paths:
                     type: string
               examples:
                 "{name: 'example'}": {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
       operationId: get-foobar
 components:
   schemas: {}
