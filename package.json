@@ -1,0 +1,21 @@
+{
+  "name": "mocktest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx @stoplight/prism-cli mock -d ./election_night_results_data.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonykulis/mocktest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonykulis/mocktest/issues"
+  },
+  "homepage": "https://github.com/anthonykulis/mocktest#readme",
+  "dependencies": {}
+}
