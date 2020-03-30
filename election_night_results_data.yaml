@@ -4,9 +4,95 @@ info:
   version: 1.0.0
   description: the uploading of the election night results data
   contact: {}
-paths: {}
+paths:
+  /car:
+    get:
+      summary: findAllCars
+      tags:
+        - car
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Car'
+              examples:
+                Collection of cars:
+                  value:
+                    - id: 1
+        '401':
+          description: Unauthorized
+      operationId: findAllCars
+      description: Gets a collection of cars
+      parameters:
+        - schema:
+            type: number
+          in: query
+          name: count
+        - schema:
+            type: string
+          in: query
+    post:
+      summary: createCar
+      tags:
+        - car
+      responses: {}
+      operationId: post-car
+  '/car/{carId}':
+    parameters:
+      - schema:
+          type: string
+        name: carId
+        in: path
+        required: true
+    get:
+      summary: findOneCar
+      tags:
+        - car
+      responses: {}
+      operationId: get-car-carId
+    put:
+      summary: updateCar
+      tags:
+        - car
+      responses: {}
+      operationId: put-car-carId
+    delete:
+      summary: deleteCar
+      tags:
+        - car
+      responses: {}
+      operationId: delete-car-carId
 components:
-  schemas: {}
+  schemas:
+    Car:
+      title: Car
+      type: object
+      x-tags:
+        - car
+      description: A car model
+      properties:
+        id:
+          type: string
+        color:
+          type: string
+        brand:
+          type: string
+        tintedWindows:
+          type: boolean
+      required:
+        - id
+        - color
+        - brand
+      x-examples:
+        Car example:
+          id: 1
+          color: black
+          model: dodge
+          tintedWindows: true
 servers:
   - url: 'https://stoplight.io/p/mocks/12241/70151'
     description: stoplight mock server
