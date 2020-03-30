@@ -3,84 +3,10 @@ info:
   title: election night results - data
   version: 1.0.0
   description: the uploading of the election night results data
-paths:
-  /upload/map:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              format: binary
-              type: string
-            examples:
-              map:
-                value: '"<FILE>"'
-        required: true
-      tags:
-        - fileUploading
-      responses:
-        '204':
-          description: When map has been put on cdn
-        '401':
-          description: Uploader is not authenticated or authorized
-      operationId: uploadCountyMap
-      summary: Uploads the county precinct map for the public app consumption
-      description: one of the three calls required to set up a new election
-  /upload/results:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              format: binary
-              type: string
-            examples:
-              results:
-                value: '"<FILE>"'
-        required: true
-      servers:
-        - url: 'https://api.dev.electionnightresults.com'
-          description: ''
-      tags:
-        - fileUploading
-      responses:
-        '201':
-          description: Results were uploaded successfully
-        '401':
-          description: The user is not authenticated or authorized
-        '415':
-          description: 'The user uploaded the wrong media type, meaning we didnt get the expected file format'
-      operationId: uploadResults
-      summary: upload the current results data
-      description: 'How the user uploads the election results. As the user updates the results, this file will have 100% of the info required for this, meaning old uploads get archived, so there is no corresponding PUT request'
-  /upload/registration:
-    post:
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              format: binary
-              type: string
-            examples:
-              data:
-                value: '"<FILE>"'
-      servers:
-        - url: 'https://api.dev.electionnightresults.com'
-          description: ''
-      tags:
-        - fileUploading
-      responses:
-        '201':
-          description: The file was able to be parsed and transformed into a json representation
-        '401':
-          description: The uploader failed authentication or authorization
-        '415':
-          description: 'Uploader sent a file that does not meet requirments to be parsed - example expected format was ES&S but got a random text file'
-      operationId: uploadVoterRegistration
-      summary: upload the voter registration file
-      description: 'one of the three calls required to set up a new election. '
+  contact: {}
+paths: {}
 components:
   schemas: {}
 servers:
-  - url: 'http://localhost:4010'
-    description: ''
+  - url: 'https://stoplight.io/p/mocks/12241/70151'
+    description: stoplight mock server
